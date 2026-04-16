@@ -74,7 +74,7 @@ def reject_pr(
         "POST",
         comment_url,
         headers=api.get_headers(),
-        data=json.dumps({"body": comment_body}),
+        body=json.dumps({"body": comment_body}),
     )
     close_url = (
         f"https://api.github.com/repos/{event.repo_owner}/{event.repo_name}"
@@ -84,7 +84,7 @@ def reject_pr(
         "PATCH",
         close_url,
         headers=api.get_headers(),
-        data=json.dumps({"state": "closed"}),
+        body=json.dumps({"state": "closed"}),
     )
 
 
