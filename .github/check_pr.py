@@ -98,7 +98,9 @@ def check_pull_request(api: GithubApiClient, event: Event) -> None:
         raise RuntimeError("Invalid HTTP response code: {}".format(resp.status))
     pr_details = json.loads(resp.data)
     match = find_ban_word_match(
-        pr_details.get("title", ""), pr_details.get("body", ""), build_ban_rex_list()
+        pr_details.get("title", "") or "",
+        pr_details.get("body", "") or "",
+        build_ban_rex_list(),
     )
     if match[0]:
         reject_pr(api, event, match[0], match[1])
