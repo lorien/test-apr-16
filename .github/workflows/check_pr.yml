@@ -24,4 +24,4 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           pip install urllib3
-          python .github/reject_pr.py
+          python .github/check_pr.py
