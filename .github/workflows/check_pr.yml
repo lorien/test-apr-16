@@ -12,8 +12,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@c21b3c1f3b659cdca74f400b295075385c728d2d
-      - uses: lorien/pr-policy-checker@main
+      - uses: actions/checkout@v4
+      - uses: lorien/pr-policy-checker@c21b3c1f3b659cdca74f400b295075385c728d2d
         with:
           restricted-words: "crocodile,слон"
         env:
